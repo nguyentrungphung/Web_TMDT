@@ -1,0 +1,107 @@
+﻿
+@using Web_1D2C.Models
+@model List<Giohang>
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_LayoutCart.cshtml";
+   
+    
+<link href="~/Content/index.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/venobox.css" rel="stylesheet" />
+    <link href="~/Content/signup.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+}
+
+@{
+    KHACHHANG kh = (KHACHHANG)Session["taikhoan"];
+}
+<table align="center">
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px">
+                <td> Họ tên người dùng:</td>
+                <td style="font-weight:bold">  @kh.HoTen </td>
+            </tr>
+            <tr style="height:40px">
+                <td> Địa chỉ:</td>
+                <td style="font-weight:bold">  @kh.DiachiKH </td>
+            </tr>
+            <tr style="height:40px">
+                <td> Địện thoại:</td>
+                <td style="font-weight:bold">  @kh.DienthoaiKH </td>
+            </tr>
+            <tr style="height:40px">
+                <td> Ngày đặt:</td>
+                <td style="font-weight:bold"> @DateTime.Now.ToShortDateString() </td>
+            </tr>
+        
+        <tr style="height:40px">
+            <td> Ngày giao hàng:</td>
+            <td style="font-weight:bold">
+                <input type="date" name="Ngaygiao" />
+            </td>
+        </tr>
+
+            <tr style="height:40px">
+                <td>
+                    <button class="btn btn-success" type="button" data-toggle="modal" data-target="#bankBox">Thanh Toán Online</button>
+                </td>
+                <td>
+
+                    <button class="btn btn-primary" type="submit">Đặt hàng</button>
+                </td>
+            </tr>
+            }
+</table>
+
+
+
+
+
+
+<!-- Noi chon ngan hang thanh toan -->
+@{
+    Web_1D2C.VNPAY.VNPAY vnpay = (Web_1D2C.VNPAY.VNPAY)Session["vnpay"];
+
+}
+
+
+<div class="modal" id="bankBox">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Chọn ngân hàng thanh toán</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row">
+                    @for (int i = 0; i < vnpay.ListBank.Count; i++)
+                    {
+                        <div class="col-4">
+                            <a href="@vnpay.ListBank[i].Url"><img src="@vnpay.ListBank[i].Img" alt="@vnpay.ListBank[i].Name" height="40px" /></a>
+                        </div>
+                    }
+                </div>
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng lại</button>
+            </div>
+
+        </div>
+    </div>
+</div>

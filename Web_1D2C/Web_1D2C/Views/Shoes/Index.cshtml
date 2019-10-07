@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Web_1D2C.Models.SANPHAM>
+@*@using Web_1D2C.Models
+    @using PagedList.Mvc;
+    @model PagedList.PagedList<SANPHAM>*@
+
+
+@{
+
+    ViewBag.Title = "Index";
+    
+    Layout = "~/Views/Shared/_LayoutUser1.cshtml";
+
+}
+
+<div class="row">
+    <div class="col-12">
+        <h1 class="section-title">Sản Phẩm Mới</h1>
+    </div>
+</div>
+<div class="movie__content">
+    <div class="owl-carousel">
+        @foreach (var sp in Model)
+        {
+
+            @*<div class="col-sm-6 col-md-3 text-center">
+
+                    <a href="@Url.Action("Details","Shoes", new {id = sp.Masp })">
+                        <div class="shoes__item">
+                            <img src="~/Images/@sp.Anhbia" class="img-fluid w-100" style="height:300px">
+                            <div class="shoes__overlay"></div>
+                            <div class="shoes__detail w-100 text-center text-white">
+                                <i class="fa fa-play d-block mx-auto mb-3 video-play venobox vbox-item" href="https://youtu.be/aOXvyd9v1cg" data-vbtype="video"></i>
+                                <a class="d-block text-white mb-2" >READ MORE</a>
+                                <span>@sp.NHASAXUAT.TenNSX</span>
+                            </div>
+                        </div>
+
+                        <span>
+                            <p class="shoes__name text-center my-3">@sp.Tensp</p>
+                        </span>
+                    </a>
+                    <i class="fa fa-star shoes__star"></i>
+                    <i class="fa fa-star shoes__star"></i>
+                    <i class="fa fa-star shoes__star"></i>
+                    <i class="fa fa-star shoes__star"></i>
+                    <i class="fa fa-star shoes__star"></i>
+                </div>*@
+
+        <div class="movie__item item">
+            <a style="text-decoration:none" href="@Url.Action("Details","Shoes", new {id = sp.Masp })">
+                <img src="~/Images/@sp.Anhbia" class="img-fluid w-100" style="height:200px">
+
+                <p>@sp.Tensp</p>
+                
+                    <button class="btn-read-more">Xem Thêm</button> 
+            </a>
+        </div>
+
+
+}
+        @*Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+            <div class="MenuTrang">
+
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+            </div>
+            <style>
+                .MenuTrang li {
+                    display: inline;
+                }
+            </style>*@
+        </div>
+        </div>
+

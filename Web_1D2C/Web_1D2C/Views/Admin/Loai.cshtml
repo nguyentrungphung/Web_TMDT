@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Web_1D2C.Models.LOAI>
+
+@{
+    ViewBag.Title = "Loai";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Danh Mục Loại</h2>
+
+<p>
+    <a href="@Url.Action("ThemmoiLoai","Admin")" class="btn btn-info" role="button">Tạo mới NSX</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenLoai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaNSX)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenLoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHASAXUAT.TenNSX)
+        </td>
+        <td>
+            <a href="@Url.Action("Chitietloai", "Admin", new { id = item.MaNSX })" class="btn btn-info" role="button" style="border:none; width:100px; margin-bottom:10px ">Chi tiết</a>
+            <a href="@Url.Action("Sualoai", "Admin", new { id = item.MaNSX })" class="btn btn-info" role="button" style="background-color:green; border:none; width:100px; margin-bottom:10px ">Sửa</a>
+            <a href="@Url.Action("Xoaloai", "Admin", new { id = item.MaNSX })" class="btn btn-info" style="background-color:red;border:none; width:100px; margin-bottom:10px " role="button">Xóa</a>
+
+        </td>
+    </tr>
+}
+
+</table>

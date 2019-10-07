@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Web_1D2C.Models.CHITIETDONTHANG>
+
+@{
+    ViewBag.Title = "CT_Dondathang";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center; color:blue">Chi tiết đơn đặt hàng</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SANPHAM.Tensp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Soluong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dongia)
+        </th>
+        <th>
+            Tổng tiền
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SANPHAM.Tensp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soluong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dongia)
+            </td>
+            <td>
+                @(item.Dongia * item.Soluong)
+            </td>
+        </tr>
+    }
+
+</table>
+@*@if (ViewBag.GiaoHang == false)
+{
+    <a href="/Admin/CT_Dondathang?id=@ViewBag.ID&giaohang=false" type="button" class="btn btn-danger">Huy don hang</a>
+    <a href="/Admin/CT_Dondathang?id=@ViewBag.ID&giaohang=true" type="button" class="btn btn-success">Xac nhan don hang</a>
+}*@
+<div style="text-align:center" >
+
+    <a href="/Admin/CT_Dondathang?id=@ViewBag.ID&giaohang=false" style="background-color:red; color:red " type="button" class="btn btn-danger">Huy don hang</a>
+    <a href="/Admin/CT_Dondathang?id=@ViewBag.ID&giaohang=true"style="background-color:blue ; color:blue " type="button" class="btn btn-success">Xac nhan don hang</a>
+</div>

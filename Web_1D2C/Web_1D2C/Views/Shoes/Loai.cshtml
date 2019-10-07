@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Web_1D2C.Models.LOAI>
+
+@foreach (var item in Model)
+{
+    <a class="dropdown-item" href="@Url.Action("SPTheoloai","Shoes",new {id =item.MaLoai})">@item.TenLoai</a>
+    <div class="dropdown-divider"></div>
+
+}

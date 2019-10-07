@@ -1,0 +1,466 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <title>1 Đôi 2 Chiếc</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="png" href="~/Images/logo.png" />
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="">
+
+    <link href="~/Content/index1.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="/ASSETS/CSS/responsive.css">*@
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <!-- SWIPER LIBRARY -->
+    @*<link rel="stylesheet" href="/ASSETS/CSS/swiper.min.css">*@
+    <link href="~/Content/swiper.min.css" rel="stylesheet" />
+    <!-- OWL CAROUSEL LIBRARY -->
+    @*<link rel="stylesheet" href="/ASSETS/CSS/owl.carousel.min.css">*@
+    <link href="~/Content/owl.carousel.min.css" rel="stylesheet" />
+    <!-- HOVER EFFECT -->
+    @*<link rel="stylesheet" href="/ASSETS/CSS/set1.css">*@
+    <link href="~/Content/set1.css" rel="stylesheet" />
+    <!-- LIGHTBOX LIBRARY -->
+    @*<link rel="stylesheet" href="/ASSETS/CSS/lightbox.min.css">*@
+    <link href="~/Content/lightbox.min.css" rel="stylesheet" />
+    <!-- INPUT EFFECT LIBRARY -->
+    @*<link rel="stylesheet" href="/ASSETS/CSS/demo.css">*@
+    <link href="~/Content/demo.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="/ASSETS/CSS/set1-input.css">*@
+    <link href="~/Content/set1-input.css" rel="stylesheet" />
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <header id="header" class="header">
+        <a href="#" class="header__logo">
+            <img src="~/Images/logo.png" alt="">
+        </a>
+        <nav class="header__nav">
+            <ul>
+                @*<li class="active">
+                        <a href="#">Lịch chiếu</a>
+                    </li>*@
+                <li>
+                    <a href="#nav__bottom">Sản phẩm</a>
+                </li>
+                <li>
+                    <a href="#news">Tin Tức</a>
+                </li>
+                <li>
+                    <a href="#contact">Liên hệ</a>
+                </li>
+            </ul>
+        </nav>
+        <a href="@Url.Action("Dangnhap","Nguoidung")" class="header__login">
+            <i class="fa fa-user-circle"></i>
+            <span>Đăng nhập</span>
+        </a>
+    </header>
+
+    <section id="carousel">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="~/Images/carousel1.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="~/Images/carousel2.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="~/Images/carousel3.jpg" alt="">
+                </div>
+            </div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <section id="nav__bottom">
+        <div class="header__bottom clearfix header__nav">
+
+            <ul class="header-menu header-menu-bot nav nav-tabs">
+                @Html.Action("Nhasanxuat", "Shoes")
+            </ul>
+
+            <form class="header-menu header-menu-bot">
+                <input type="search" name="" id="search" placeholder="Tìm sản phẩm">
+                @Html.Action("GiohangPartial", "Giohang")
+            </form>
+        </div>
+    </section>
+
+    <section id="movie">
+
+        <div>
+            @RenderBody()
+        </div>
+        @*<div class="movie__content">
+                <div class="owl-carousel">
+                    <div class="movie__item item">
+                        <img src="~/Images/shoes2.jpg" alt="">
+
+                        <p>Giày Adidas</p>
+                        <button class="btn-read-more">Xem Thêm</button>
+                    </div>
+
+
+                </div>
+            </div>*@
+    </section>
+
+    <section id="news">
+        <h1 class="section-title">
+            <span data-filter=".dienanh">Tin Tức</span>
+            <span data-filter=".review">Review</span>
+            <span data-filter=".deal">Khuyến Mãi</span>
+        </h1>
+
+        <div class="news__content row">
+            <div class="grid mix dienanh">
+                <a href="https://snkrvn.com/tin-tuc/thong-tin-ve-giay-361degrees-x-gundam-rx-78-vs-zaku-ii/">
+                    <figure class="effect-ruby">
+                        <img src="~/Images/361-Gundam-RX-78-Sneakers-1.jpg" style="width:320px ;height:360px " alt="img13" />
+
+                        <figcaption>
+                            <h2>Glowing <span>Ruby</span></h2>
+                            <p>Ruby did not need any help. Everybody knew that.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+
+            <div class="grid mix dienanh">
+                <a href="https://snkrvn.com/tin-tuc/the-gioi/ngay-ra-mat-gia-ban-noi-ban-giay-yeezy-boost-350-v2-lundmark/">
+                    <figure class="effect-ruby">
+                        <img src="~/Images/https-hypebeast.com-image-2019-06-yeezy-boost-350-v2-lundmark-01.jpg" style="width:320px ;height:360px " alt="img13" />
+
+                        <figcaption>
+                            <h2>Glowing <span>Ruby</span></h2>
+                            <p>Ruby did not need any help. Everybody knew that.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+
+            <div class="grid mix dienanh">
+                <a href="https://snkrvn.com/tin-tuc/ngay-ra-mat-gia-noi-ban-giay-nike-x-stranger-things/">
+                    <figure class="effect-ruby">
+                        <img src="~/Images/nike-stranger-things-hawkins-shoes.jpg" style="width:320px ;height:360px " alt="img13" />
+                        <figcaption>
+                            <h2>Glowing <span>Ruby</span></h2>
+                            <p>Ruby did not need any help. Everybody knew that.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+
+            <div class="grid mix review">
+
+                <iframe width="320" height="360" src="https://www.youtube.com/embed/skWjlYnHX2M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="grid mix review">
+                <iframe width="320" height="360" src="https://www.youtube.com/embed/fpxPS20bJtE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="grid mix review">
+                <iframe width="320" height="360" src="https://www.youtube.com/embed/xWHsye9w3xw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="grid mix deal">
+                <a href="~/Images/shoes2.jpg" data-lightbox="gallery3">
+                    <figure class="effect-ruby">
+                        <img src="~/Images/shoes2.jpg" alt="img13" />
+                        <figcaption>
+                            <h2>Glowing <span>Ruby</span></h2>
+                            <p>Ruby did not need any help. Everybody knew that.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+
+            <div class="grid mix deal">
+                <a href="~/Images/shoes2.jpg" data-lightbox="gallery3">
+                    <figure class="effect-ruby">
+                        <img src="~/Images/shoes2.jpg" alt="img13" />
+                        <figcaption>
+                            <h2>Glowing <span>Ruby</span></h2>
+                            <p>Ruby did not need any help. Everybody knew that.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+
+            <div class="grid mix deal">
+                <a href="~/Images/shoes2.jpg" data-lightbox="gallery3">
+                    <figure class="effect-ruby">
+                        <img src="~/Images/shoes2.jpg" alt="img13" />
+                        <figcaption>
+                            <h2>Glowing <span>Ruby</span></h2>
+                            <p>Ruby did not need any help. Everybody knew that.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h1 class="section-title">Liên hệ với chúng tôi</h1>
+        <div class="contact__content row">
+            <div class="contact__form col-md-6">
+                <h2>Hãy liên hệ với chúng tôi</h2>
+                <form action="">
+                    <span class="input input--hoshi">
+                        <input class="input__field input__field--hoshi" type="text" id="input-6" />
+                        <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="input-6">
+                            <span class="input__label-content input__label-content--hoshi">Name</span>
+                        </label>
+                    </span>
+
+                    <span class="input input--hoshi">
+                        <input class="input__field input__field--hoshi" type="text" id="input-6" />
+                        <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="input-6">
+                            <span class="input__label-content input__label-content--hoshi">Email</span>
+                        </label>
+                    </span>
+
+                    <span class="input input--hoshi">
+                        <input class="input__field input__field--hoshi" type="text" id="input-6" />
+                        <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="input-6">
+                            <span class="input__label-content input__label-content--hoshi">Supject</span>
+                        </label>
+                    </span>
+
+                    <span class="input input--hoshi">
+                        <input class="input__field input__field--hoshi" type="text" id="input-6" />
+                        <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="input-6">
+                            <span class="input__label-content input__label-content--hoshi">Message</span>
+                        </label>
+                    </span>
+
+                    <button class="btn-contact-submit">Phản Hồi</button>
+                </form>
+            </div>
+
+
+            <div class="contact__info contact__form col-md-6">
+                <h2>Địa chỉ</h2>
+                <div class="contact__info__item">
+                    <i class="fa fa-home"></i>
+                    <p>103 Nguyễn Cư Trinh</p>
+                    <p>Quận 1 - TP.HCM</p>
+                </div>
+
+                <div class="contact__info__item">
+                    <i class="fa fa-phone"></i>
+                    <p>+(84) 888 734 797</p>
+                    <p>+(84) 123 456 535</p>
+                </div>
+                <div class="contact__map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1589.56504099228!2d106.689351495618!3d10.763420041576216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1738aa5e2f%3A0x772e8509214d82aa!2zMTAzIE5ndXnhu4VuIEPGsCBUcmluaCwgUGjGsOG7nW5nIE5ndXnhu4VuIEPGsCBUcmluaCwgUXXhuq1uIDEsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1540633891245"
+                            frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="fb-root"></div>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v3.2'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    <!--FOOTER-->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <h3>LIÊN HỆ</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                        <li><a href="#">Gửi lại cho tôi phản hồi</a></li>
+                        <li><a href="#">Liên hệ chúng tôi</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <h3>GIỚI THIỆU GIÀY MỚI</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Tìm chúng tôi</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <h3>THỦ TỤC PHÁP LÍ</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Điều khoản và điều kiện</a></li>
+                        <li><a href="#">Gửi lại cho tôi phản hồi</a></li>
+                        <li><a href="#">Chính sách cookie</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <h3>KẾT NỐI VỚI CHÚNG TÔI</h3>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="https://www.facebook.com/profile.php?id=100013828747923">
+                                <i class="fa fa-facebook mr-2"></i> Facebook
+                            </a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fa fa-envelope"></i> Gmail</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 ">
+                    <p class="border-top copy-right text-white pt-3 mt-5">
+                        2019 © Đời Chỉ Thế Thôi / Web design by 1 Đôi
+                        2 Chiếc
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END FOOTER -->
+
+    <a class="btn-back-top btn-contact-submit" href="#carousel"><i class="fa fa-arrow-circle-up"></i></a>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <!-- JQUERY LIBARARY -->
+    <script src="https://code.jquery.com/jquery-3.4.0.js"
+            integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+    <!-- SWIPER LIBRARY -->
+    @*<script src="/ASSETS/JS/swiper.min.js"></script>*@
+    <script src="~/Scripts/swiper.min.js"></script>
+    <!-- OWL CAROUSEL LIBRARY -->
+    @*<script src="/ASSETS/JS/owl.carousel.min.js"></script>*@
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <!-- MIXITUP LIBRARY -->
+    @*<script src="/ASSETS/JS/mixitup.min.js"></script>*@
+    <script src="~/Scripts/mixitup.min.js"></script>
+    <!-- LIGHTBOX LIBRARY -->
+    @*<script src="/ASSETS/JS/lightbox.min.js"></script>*@
+    <script src="~/Scripts/lightbox.min.js"></script>
+    <!-- INPUT EFFECT LIBRARY -->
+    @*<script src="/ASSETS/JS/classie.js"></script>*@
+    <script src="~/Scripts/classie.js"></script>
+    <!-- SMOTH SCROLL -->
+    @*<script src="/ASSETS/JS/navbar-fixed.js"></script>*@
+    <script src="~/Scripts/navbar-fixed.js"></script>
+
+    <script>
+        // SCRIPT SWIPER
+        var mySwiper = new Swiper('.swiper-container', {
+            // Optional pramaters
+            loop: true,
+            autoplay: true,
+
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        })
+        // END SCRIPT SWIPER
+
+        // SCRIPT OWL CAROUSEL
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 5
+                }
+            }
+        })
+        // END SCRIPT OWL CAROUSEL
+
+        // MIXITUP
+        var mixer = mixitup('.news__content');
+        mixer.filter('.dienanh');
+
+        // SCRIPT INPUT EFFECT
+        (function () {
+            // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+            if (!String.prototype.trim) {
+                (function () {
+                    // Make sure we trim BOM and NBSP
+                    var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+                    String.prototype.trim = function () {
+                        return this.replace(rtrim, '');
+                    };
+                })();
+            }
+
+            [].slice.call(document.querySelectorAll('input.input__field')).forEach(function (inputEl) {
+                // in case the input is already filled..
+                if (inputEl.value.trim() !== '') {
+                    classie.add(inputEl.parentNode, 'input--filled');
+                }
+
+                // events:
+                inputEl.addEventListener('focus', onInputFocus);
+                inputEl.addEventListener('blur', onInputBlur);
+            });
+
+            function onInputFocus(ev) {
+                classie.add(ev.target.parentNode, 'input--filled');
+            }
+
+            function onInputBlur(ev) {
+                if (ev.target.value.trim() === '') {
+                    classie.remove(ev.target.parentNode, 'input--filled');
+                }
+            }
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Web_1D2C.Models.SANPHAM>
+
+@foreach (var item in Model)
+{
+    <div class="col-sm-6 col-md-3 text-center">
+        <div class="shoes__item">
+
+            <div class="shoes__overlay"></div>
+            <div class="shoes__detail w-100 text-center text-white">
+                <i class="fa fa-play d-block mx-auto mb-3 video-play venobox vbox-item" href="https://youtu.be/aOXvyd9v1cg" data-vbtype="video"></i>
+                <a class="d-block text-white mb-2">READ MORE</a>
+                <span>Released: 7 Mar, 2017</span>
+            </div>
+        </div>
+        <a href="@Url.Action("Details","Shoes",new {id = item.Masp})">
+            <img alt="" src="~/Images/@item.Anhbia" class="img-fluid w-100">
+            <span>
+                <p class="shoes__name text-center my-3">@item.Tensp</p>
+            </span>
+        </a>
+        <i class="fa fa-star shoes__star"></i>
+        <i class="fa fa-star shoes__star"></i>
+        <i class="fa fa-star shoes__star"></i>
+        <i class="fa fa-star shoes__star"></i>
+        <i class="fa fa-star shoes__star"></i>
+    </div>
+
+}
+

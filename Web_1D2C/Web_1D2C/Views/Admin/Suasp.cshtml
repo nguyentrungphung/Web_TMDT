@@ -1,0 +1,128 @@
+﻿@model Web_1D2C.Models.SANPHAM
+@{
+    ViewBag.Title = "Suasp";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    <link href="~/Content/index.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/venobox.css" rel="stylesheet" />
+    <link href="~/Content/infoShoes.css" rel="stylesheet" />
+    <link href = "~/Content/admin-2.css" rel = "stylesheet" />
+}
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Quản lý danh sách sản phẩm</h1>
+
+        <div class="row">
+            <div class="infoShoes col-md-6 wrapper">
+                <div class="preview col-md-6">
+                    <div class="preview-pic tab-content">
+                        <div class="tab-pane active" id="pic-1"><img src="@Url.Content("~/Images/"+ Model.Anhbia)" /></div>
+                        <div class="tab-pane" id="pic-2"><img src="@Url.Content("~/Images/"+ Model.Anhbia)" /></div>
+                        <div class="tab-pane" id="pic-3"><img src="@Url.Content("~/Images/"+ Model.Anhbia)" /></div>
+                        <div class="tab-pane" id="pic-4"><img src="@Url.Content("~/Images/"+ Model.Anhbia)" /></div>
+                    </div>
+
+                    <ul class="preview-thumbnail nav nav-tabs">
+                        <div class="logo__small-img"></div>
+                        <div class="menu-img"><span></span></div>
+                        <li class="active">
+                            <a data-target="#pic-1" data-toggle="tab"><img src="@Url.Content("~/Images/"+ Model.Anhbia)" /></a>
+                        </li>
+                        <li>
+                            <a data-target="#pic-2" data-toggle="tab"><img src="@Url.Content("~/Images/"+ Model.Anhbia)" /></a>
+                        </li>
+                        <li>
+                            <a data-target="#pic-3" data-toggle="tab"><img src="@Url.Content("~/Images/"+ Model.Anhbia)" /></a>
+                        </li>
+                        <li>
+                            <a data-target="#pic-4" data-toggle="tab"><img src="@Url.Content("~/Images/"+ Model.Anhbia)" /></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="details col-md-6">
+
+                    <h3 class="product-title">@Html.DisplayFor(model => model.Tensp)</h3>
+
+                    <h4 class="price">Giá bán: @String.Format("{0:0,0}", Model.Giaban) VND</h4>
+
+                    <h6 class="producer-info"> <b>Nhà sản xuất:</b> @Html.DisplayFor(model => model.NHASAXUAT.TenNSX)</h6>
+
+                    <h6 class="category"> <b>Danh Mục:</b> @Html.DisplayFor(model => model.LOAI.TenLoai)</h6>
+
+                    <h6> <b>Loại:</b> Rep</h6>
+
+                    <h6 class="content">
+                        <b>Mô Tả:</b>   @Html.DisplayFor(model => model.Mota)
+                        
+                    </h6>
+                </div>
+            </div>
+
+            <div class="col-md-1" style="border-left: 1px solid #858796"></div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label for="form_name">Tên sản phẩm *</label>
+                    @Html.EditorFor(model => model.Tensp, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Tensp, "", new { @class = "text-danger" })
+                    @*<input id="form_name" type="text" name="name" class="form-control" placeholder="Vui lòng nhập tên sản phẩm *" required="required" data-error="Firstname is required.">*@
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="form_phone">Giá sản phẩm *</label>
+                    @Html.EditorFor(model => model.Giaban, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Giaban, "", new { @class = "text-danger" })
+
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="form_username">Nhà sản xuất *</label>
+                    @Html.DropDownList("MaNSX", null, new { @class = "form-control" })
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <label for="form_username">Loại *</label>
+                    @Html.DropDownList("MaLoai", null, new { @class = "form-control" })
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <h5>Ảnh bìa</h5>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="fup">
+                        <label class="custom-file-label" for="customFile">Chọn file</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="form_username">Ngày cập nhật *</label>
+                    <input type="date" class="form-control form-control-user" name="Ngaycapnhat">
+                    @Html.ValidationMessageFor(model => model.Ngaycapnhat, "", new { @class = "text-danger" })
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <label for="form_username">Số lượng tồn *</label>
+                    @Html.EditorFor(model => model.Soluongton, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Soluongton, "", new { @class = "text-danger" })
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group" style="width: 100%; height: 300px;">
+                    <label for="form_username">Nội dung *</label>
+                    @*<textarea name="Mota"></textarea>*@
+                    @Html.EditorFor(model => model.Mota, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Mota, "", new { @class = "text-danger" })
+                </div>
+                <input class="btn btn-info" type="submit" style="border:none; background-color:red;width:100px" value="Sửa" />
+                <a href="@Url.Action("Sanpham", "Admin")" class="btn btn-info" role="button" style="width:100px">Trở về</a>
+            </div>
+
+            }
+        </div>
+    </div>
+
+

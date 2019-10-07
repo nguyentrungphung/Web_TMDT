@@ -1,0 +1,104 @@
+﻿@using Web_1D2C.Models
+
+
+@model IEnumerable<Web_1D2C.Models.SANPHAM>
+
+@{
+    ViewBag.Title = "1 Đôi 2 Chiếc";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+
+}
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+<h2 style="color:blue">Danh Sách Sản Phẩm</h2>
+<p>
+    @*<a href="@Url.Action("Create", "Create")" class="btn btn-info" role="button" style="border:none"><i class="material-icons" ></i></a>*@
+    <a href="@Url.Action("Themmoisp","Admin")" class="btn btn-info" role="button">Tạo mới sản phẩm</a>
+</p>
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <tr>
+                <th style="width:200px">
+                    Tên sản phẩm
+                </th>
+                <th style="width:100px">
+                    Giá bán
+                </th>
+                <th style="width:300px">
+                    Mô tả sản phẩm
+                </th>
+                <th style="width:120px">
+                    Ảnh sản phẩm
+                </th>
+                <th style="width:150px">
+                    Ngày đăng
+                </th>
+                <th style="width:120px">
+                    Số lượng tồn
+                </th>
+                <th style="width:120px">
+                    Mã loại
+                </th>
+                <th style="width:100px">
+                    Mã nhà sản xuất
+                </th>
+                <th style="width:200px"></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tensp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Giaban)
+                    </td>
+                    <td>
+                        @Truncate(item.Mota, 100)
+                    </td>
+                    <td>
+
+                        <img src="@Url.Content("~/Images/" + item.Anhbia)" style="height:150px" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ngaycapnhat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Soluongton)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LOAI.TenLoai)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NHASAXUAT.TenNSX)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Chitiet", "Admin", new { id = item.Masp })" class="btn btn-info" role="button" style="border:none; width:70px; margin-bottom:10px ">Chi tiết@*<i class="fa fa-edit"></i>*@</a>
+                        <a href="@Url.Action("Suasp", "Admin", new { id = item.Masp })" class="btn btn-info" role="button" style="background-color:green; border:none;  width:70px; margin-bottom:10px">Sửa@*<i class="fa fa-edit"></i>*@</a>
+                        <a href="@Url.Action("Xoasp", "Admin", new { id = item.Masp })" class="btn btn-info" style="background-color:red;border:none;  width:70px; margin-bottom:10px" role="button">Xóa@*<i class="fa fa-edit"></i>*@</a>
+                        
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

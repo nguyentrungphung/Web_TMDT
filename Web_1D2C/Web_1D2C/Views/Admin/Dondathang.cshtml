@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Web_1D2C.Models.DONDATHANG>
+
+@{
+    ViewBag.Title = "Dondathang";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center; color:blue">Quản lí đơn đặt hàng</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KHACHHANG.HoTen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ngaydat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ngaygiao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dathanhtoan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tinhtranggiaohang)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.KHACHHANG.HoTen)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ngaydat)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ngaygiao)
+    </td>
+    <td>
+        @(  item.Dathanhtoan == false ? "Chưa thanh toán" : "Đã thanh toán" )
+    </td>
+    <td>
+        @( item.Tinhtranggiaohang == false ? "Hủy đơn hàng" : "Xác nhận đơn hàng" )
+   
+    </td>
+    <td>
+
+        <a href="@Url.Action("CT_Dondathang", "Admin", new {id = item.MaDonHang  })">Chi tiet</a>
+
+    </td>
+</tr>
+}
+
+</table>

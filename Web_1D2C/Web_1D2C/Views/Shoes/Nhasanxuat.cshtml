@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Web_1D2C.Models.NHASAXUAT>
+
+@foreach (var item in Model)
+{
+    <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="@Url.Action("SPTheoNSX","Shoes",new {id =item.MaNSX})" role="button" aria-haspopup="true" aria-expanded="false">
+            @item.TenNSX
+        </a>
+        <div class="dropdown-menu">
+            @Html.Action("Loai", "Shoes", new { id = item.MaNSX })
+        </div>
+    </li>
+}
+   
+

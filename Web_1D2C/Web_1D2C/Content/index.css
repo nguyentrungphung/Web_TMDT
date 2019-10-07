@@ -1,0 +1,353 @@
+* {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+}
+
+.section-title {
+    color: #ec7532;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.section-title:before {
+    content: '';
+    width: 160px;
+    height: 3px;
+    background-image: linear-gradient(to right, #fbbd61, #ec7532);
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+}
+
+.video-play {
+    width: 80px;
+    height: 80px;
+    font-size: 20px;
+    border-radius: 50%;
+    border: 2px solid white;
+    line-height: 80px;
+    cursor: pointer;
+}
+
+
+/* HEADER CSS */
+
+.header {
+    width: 100%;
+}
+
+.logo {
+    display: block;
+    /* margin-left: auto;
+    margin-right: auto; */
+    float: right;
+}
+
+.header__logo img {
+    width: 100px;
+    height: 100px;
+}
+
+.header__right {
+    padding: 10px;
+    margin: 0;
+}
+
+.header-menu {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.header-menu a {
+    padding: 0 10px;
+    color: #000000;
+}
+
+.header-menu a:hover {
+    /* background-color: pink; */
+    color: #ec7532;
+    text-decoration: none;
+}
+
+.header-menu-top {
+    float: right;
+}
+
+.header-menu-top a {
+    border-right: 1px solid #000000;
+    font-size: 13px;
+}
+
+.header-menu-bot {
+    display: flex;
+    margin: auto;
+    float: left;
+    padding: 0 auto;
+    justify-content: space-between;
+}
+
+.header-menu-bot a {
+    font-weight: bold;
+}
+
+.header-menu-bot li {
+    margin-left: 27.5px;
+    /* margin-right: 15px; */
+}
+
+.header-menu-bot input {
+    width: 150;
+    height: 30px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 4px;
+    outline: none;
+}
+
+
+/* SCROLLBAR CSS */
+
+.header.fix {
+    background-color: #fff;
+    left: 0;
+    max-width: 100%;
+    overflow: visible;
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+
+/* END SCROLLBAR CSS */
+
+
+/* END HEADER CSS */
+
+
+/* CAROUSEL CSS */
+
+.carousel {
+    margin-top: 100px;
+}
+
+.carouse-item__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, black, transparent)
+}
+
+.carousel-item__caption {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-right: 25%;
+}
+
+.carousel-item__caption span {
+    color: #fbbd61;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.carousel-item__caption p {
+    font-size: 18px;
+}
+
+.carousel-item__trailer span {
+    width: 40px;
+    height: 40px;
+    border: 2px solid white;
+    line-height: 40px;
+}
+
+.btn-orange {
+    background: linear-gradient(to right, #fbbd61, #ec7532);
+    border-radius: 40px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    padding: 11px 30px;
+    cursor: pointer;
+}
+
+.my-carousel .carousel-indicators {
+    bottom: 50px;
+}
+
+.my-carousel .carousel-indicators li {
+    width: 11px;
+    height: 11px;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.my-carousel .carousel-indicators li.active {
+    background-color: white;
+}
+
+
+/* END CAROUSEL CSS */
+
+
+/* SHOWING SHOES CSS */
+
+.shoes {
+    padding-top: 80px;
+}
+
+.shoes__item {
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.shoes__overlay {
+    position: absolute;
+    top: 0;
+    left: -400%;
+    transform: skewX(45deg);
+    width: 270%;
+    height: 100%;
+    background: linear-gradient(to bottom, #fbbd61, #ec7532);
+    transition: all 0.5s;
+}
+
+.shoes__item:hover .shoes__overlay {
+    left: -100%;
+}
+
+.shoes__detail {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) scale(0.8);
+    left: 0;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.shoes__item:hover .shoes__detail {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+.shoes__detail a {
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.shoes__detail span {
+    font-size: 16px;
+}
+
+.shoes__name {
+    font-size: 18px;
+}
+
+.shoes__star {
+    color: #fbbd61;
+}
+
+
+/* END SHOWING SHOES CSS */
+
+
+/* MAKER CSS */
+
+.video {
+    padding-top: 50px;
+}
+
+
+/* END MAKER CSS */
+
+
+/* CONTACT CSS */
+
+.contact__info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.contact__info__item {
+    text-align: center;
+    margin-bottom: 0.1rem;
+    /* font-size: 0.7rem; */
+    margin-top: 2rem;
+}
+
+.contact__info__item i {
+    font-size: 2rem;
+    color: #000000;
+    padding-top: 2rem;
+}
+
+.contact__map iframe {
+    margin-top: 50px;
+    width: 100%;
+    height: 20rem;
+}
+
+
+/* END CONTACT CSS */
+
+
+/* FOOTER CSS */
+
+.footer {
+    background-color: #101010;
+    /* padding: 50px 0; */
+    padding-top: 50px;
+}
+
+.footer h3 {
+    color: #ec7532;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer ul li a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.footer ul li a:hover {
+    color: #ec7532;
+}
+
+.copy-right {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+
+/* END FOOTER CSS */
+
+@media screen and (max-width:1200px) {
+    /* viết css ở đây */
+}
+
+@media screen and (max-width:996px) {
+    /* viết css ở đây */
+}
+
+@media screen and (max-width:768px) {
+    /* viết css ở đây */
+}
+
+@media screen and (max-width:576px) {
+    /* viết css ở đây */
+}

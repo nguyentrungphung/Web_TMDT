@@ -1,0 +1,103 @@
+﻿@model Web_1D2C.Models.SANPHAM
+@{
+    ViewBag.Title = "Themmoisp";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center;color:blue">Thêm Sản Phẩm Mới</h2>
+
+@using (Html.BeginForm("Themmoisp", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.Tensp, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <h5>Tên Sản Phẩm</h5>
+            <div>
+                @Html.EditorFor(model => model.Tensp, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Tensp, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.Giaban, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <h5>Giá Bán</h5>
+            <div>
+                @Html.EditorFor(model => model.Giaban, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Giaban, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.Mota, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <h5>Mô tả</h5>
+            <div>
+                @*@Html.EditorFor(model => model.Mota, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Mota, "", new { @class = "text-danger" })*@
+                <textarea name="Mota"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.Anhbia, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <h5>Ảnh bìa</h5>
+            <div>
+                @*@Html.EditorFor(model => model.Anhbia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Anhbia, "", new { @class = "text-danger" })*@
+
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="fup">
+                    <label class="custom-file-label" for="customFile">Chọn file</label>
+                </div>
+                @ViewBag.Thongbao
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.Ngaycapnhat, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <h5>Ngày cập nhật</h5>
+            <div>
+                <input type="date" class="form-control form-control-user" name="Ngaycapnhat">
+                @Html.ValidationMessageFor(model => model.Ngaycapnhat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.Soluongton, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <h5>Số lượng tồn</h5>
+            <div>
+                @Html.EditorFor(model => model.Soluongton, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Soluongton, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h5>Nhà sản xuất</h5>
+                <div>
+                    @Html.DropDownList("MaNSX", null, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col">
+                <h5>Loại</h5>
+                <div>
+                    @Html.DropDownList("MaLoai", null, new { @class = "form-control" })
+                </div>
+            </div>
+
+        </div>
+        <br />
+        <div class="form-group" style="text-align:center">
+            <div>
+                <input type="submit" value="Thêm mới" class="btn btn-default" style="background-color:deepskyblue; color:white;width:200px" />
+                <a href="@Url.Action("Sanpham", "Admin")" class="btn btn-info" role="button" style="width:200px">Trở về</a>
+            </div>
+        </div>
+    </div>
+
+}
+
