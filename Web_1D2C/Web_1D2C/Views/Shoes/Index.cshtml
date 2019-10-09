@@ -24,50 +24,93 @@
 
             @*<div class="col-sm-6 col-md-3 text-center">
 
-                    <a href="@Url.Action("Details","Shoes", new {id = sp.Masp })">
-                        <div class="shoes__item">
-                            <img src="~/Images/@sp.Anhbia" class="img-fluid w-100" style="height:300px">
-                            <div class="shoes__overlay"></div>
-                            <div class="shoes__detail w-100 text-center text-white">
-                                <i class="fa fa-play d-block mx-auto mb-3 video-play venobox vbox-item" href="https://youtu.be/aOXvyd9v1cg" data-vbtype="video"></i>
-                                <a class="d-block text-white mb-2" >READ MORE</a>
-                                <span>@sp.NHASAXUAT.TenNSX</span>
-                            </div>
+                <a href="@Url.Action("Details","Shoes", new {id = sp.Masp })">
+                    <div class="shoes__item">
+                        <img src="~/Images/@sp.Anhbia" class="img-fluid w-100" style="height:300px">
+                        <div class="shoes__overlay"></div>
+                        <div class="shoes__detail w-100 text-center text-white">
+                            <i class="fa fa-play d-block mx-auto mb-3 video-play venobox vbox-item" href="https://youtu.be/aOXvyd9v1cg" data-vbtype="video"></i>
+                            <a class="d-block text-white mb-2" >READ MORE</a>
+                            <span>@sp.NHASAXUAT.TenNSX</span>
                         </div>
+                    </div>
 
-                        <span>
-                            <p class="shoes__name text-center my-3">@sp.Tensp</p>
-                        </span>
-                    </a>
-                    <i class="fa fa-star shoes__star"></i>
-                    <i class="fa fa-star shoes__star"></i>
-                    <i class="fa fa-star shoes__star"></i>
-                    <i class="fa fa-star shoes__star"></i>
-                    <i class="fa fa-star shoes__star"></i>
-                </div>*@
+                    <span>
+                        <p class="shoes__name text-center my-3">@sp.Tensp</p>
+                    </span>
+                </a>
+                <i class="fa fa-star shoes__star"></i>
+                <i class="fa fa-star shoes__star"></i>
+                <i class="fa fa-star shoes__star"></i>
+                <i class="fa fa-star shoes__star"></i>
+                <i class="fa fa-star shoes__star"></i>
+            </div>*@
 
-        <div class="movie__item item">
-            <a style="text-decoration:none" href="@Url.Action("Details","Shoes", new {id = sp.Masp })">
-                <img src="~/Images/@sp.Anhbia" class="img-fluid w-100" style="height:200px">
+            <div class="movie__item item">
+                <a style="text-decoration:none" href="@Url.Action("Details","Shoes", new {id = sp.Masp })">
+                    <img src="~/Images/@sp.Anhbia" class="img-fluid w-100" style="height:200px">
 
-                <p>@sp.Tensp</p>
-                
-                    <button class="btn-read-more">Xem Thêm</button> 
-            </a>
-        </div>
+                    <p style="height: 20px">@sp.Tensp</p>
+                    <p style="margin-top: 40px">200.000.000</p>
 
+                    @*<div class="row">
+                        <div class="col-4">
+                            <button class="btn btn-primary">Mua Nhanh</button>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-success">Mua Nhanh</button>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-info">Xem Thêm</button>
+                        </div>
+                    </div>*@
 
-}
-        @*Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
-            <div class="MenuTrang">
+                    @*<button class="btn-read-more">Xem Thêm</button>*@
 
-                @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+                    <div class="button_hover">
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-primary my-1" style="width: 49%;"><i class="fa fa-bullseye mr-3"></i>Mua Nhanh</button>
+                            <button class="btn btn-info my-1" style="width: 49%;"><i class="fa fa-plus mr-3"></i>Xem Thêm</button>
+                        </div>
+                        <button class="btn btn-success" style="display: block; width: 100%;"><i class="fa fa-cart-plus mr-3"></i>Thêm vào giỏ hàng</button>
+                    </div>
+                </a>
             </div>
-            <style>
-                .MenuTrang li {
-                    display: inline;
-                }
-            </style>*@
+
+
+            <!-- Modal -->
+            @*<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+
+
+        }
+        @*Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+        <div class="MenuTrang">
+
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
         </div>
+        <style>
+            .MenuTrang li {
+                display: inline;
+            }
+        </style>*@
+    </div>
         </div>
 

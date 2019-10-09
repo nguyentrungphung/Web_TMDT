@@ -175,7 +175,7 @@ html {
     font-size: 1.2rem;
 }
 
-.movie__item .btn-read-more {
+/*.movie__item .btn-read-more {
     background-color: #fa5238;
     color: white;
     padding: 0.7rem 0;
@@ -185,15 +185,24 @@ html {
     font-weight: bold;
     display: none;
     margin-top: 5px;
-}
+}*/
 
-.movie__item:hover .btn-read-more {
+/*.movie__item:hover .btn-read-more {
     display: block;
-}
+}*/
 
 .movie__item:hover p {
     display: none;
 }
+
+.movie__item .button_hover {
+    display: none;
+}
+
+.movie__item:hover .button_hover {
+    display: block;
+}
+
 
 
 /* END MOVIE CSS */
